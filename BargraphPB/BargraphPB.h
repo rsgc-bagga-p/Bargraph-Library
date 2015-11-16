@@ -16,6 +16,7 @@ class BargraphPB
     void count(int val2);
     void binary(int input);
     void dotTest(int val3);
+    void off();
   private:
     int* _pins;
     int _number;

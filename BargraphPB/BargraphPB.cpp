@@ -62,3 +62,10 @@ for (int i = 0; i < _input; i++){
     digitalWrite(_pins[i], bitRead(input, i));
 }
 }
+
+//off
+void BargraphPB::off(){
+  for (int i = 0; i< _number; i++){
+    digitalWrite(_pins[i], LOW);
+  }
+}
