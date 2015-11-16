@@ -18,6 +18,9 @@ BargraphPB::BargraphPB(int* pins, int number){
 //which pins on
 void BargraphPB::value(int val){
 val = _val;
+for (int i = 0; i< _number; i++){
+  digitalWrite(_pins[i], LOW);
+}
 for (int i = 0; i< _val; i++){
   digitalWrite(_pins[i], HIGH);
 }
