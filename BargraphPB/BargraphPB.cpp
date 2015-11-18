@@ -8,8 +8,8 @@
 #include "BargraphPB.h"
 
 BargraphPB::BargraphPB(int* pins, int number){
+  _pins = pins;
   for(int i = 0; i < number; i++){
-    pins[i] = _pins[i];
     pinMode(_pins[i], OUTPUT);
   }
   number = _number;
@@ -17,10 +17,7 @@ BargraphPB::BargraphPB(int* pins, int number){
 
 //which pins on
 void BargraphPB::value(int val){
-val = _val;
-for (int i = 0; i< _number; i++){
-  digitalWrite(_pins[i], LOW);
-}
+_val = val;
 for (int i = 0; i< _val; i++){
   digitalWrite(_pins[i], HIGH);
 }
@@ -28,7 +25,7 @@ for (int i = 0; i< _val; i++){
 
 //count from 1 to a number and back
 void BargraphPB::count(int val2){
-  val2 =_val2;
+  _val2 = val2;
   for(int i = 0; i < _val2; i++){
     digitalWrite(_pins[i], HIGH);
     delay(500);
@@ -41,7 +38,7 @@ void BargraphPB::count(int val2){
 
 // dots up and down the graph
 void BargraphPB::dotTest(int val3){
-  val3 = _val3;
+  _val3 = val3;
   for (int i = 0; i < _val3; i++) {
   digitalWrite(_pins[i], HIGH);
   digitalWrite(_pins[i - 1], LOW);
@@ -57,13 +54,14 @@ for (int j = _val3; j >= 0; j--) {
 
 // decimal to binary
 void BargraphPB::binary(int input){
-input = _input;
-for (int i = 0; i < _input; i++){
+  _input = input;
+  for (int i = 0; i < _input; i++){
     digitalWrite(_pins[i], bitRead(input, i));
 }
 }
 
 //off
+
 void BargraphPB::off(){
   for (int i = 0; i< _number; i++){
     digitalWrite(_pins[i], LOW);
